@@ -1,7 +1,4 @@
 
-
-
-
 class Maze:
 
     def __init__(self):
@@ -13,6 +10,8 @@ class Maze:
         self.score = 0
 
 
+    def reset(self):
+        pass
     def display_board(self):
         for row in self.board:
             print(row)
@@ -33,6 +32,8 @@ class Maze:
 
     def evaluate(self):
         self.score += self.board[self.player[0]][self.player[1]]
+
+        
     def move(self):
         direction = input("enter direction: ")
         
