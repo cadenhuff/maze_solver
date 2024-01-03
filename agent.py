@@ -1,6 +1,6 @@
 import numpy as np 
 import model 
-
+import game
 class Agent:
 
 
@@ -12,20 +12,29 @@ class Agent:
         self.model = model.Model()
 
         self.state = [0,1]
+        
 
 
     def play_game(self):
-
-
-        #Use model to determine action
-
-
-        #Update game with action
-
-
-        #Update state
+        game = game.Game()
+        
+        while game.running == True:
+            #Use model to determine action
+            action = self.model.predict(self.state)
+            #Update player in game
+            game.step(action)
+            #Update agents state, this is the same as the Player's position in game
+            self.state = game.player
+        
+        
+    def run_n_times(self,n):
 
         pass
+
+        
+
+        
+
 
 
     

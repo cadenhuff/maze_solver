@@ -8,6 +8,7 @@ class Maze:
         
         self.player = [0,1]
         self.score = 0
+        self.running = True
 
 
     def reset(self):
@@ -16,47 +17,33 @@ class Maze:
         for row in self.board:
             print(row)
 
-
-    def run_maze(self):
+    def reset(self):
+        self.score = 0
+        self.running = True
+    def step(self,action):
         print(self.player)
         self.display_board()
-        self.move()
-
+        self.move(action)
         self.evaluate()
-       
-
         if self.player == [2,2]:
-            return True, self.score
-        else:
-            return False, self.score
+            self.running = False
+            
+        
+        
+           
 
     def evaluate(self):
         self.score += self.board[self.player[0]][self.player[1]]
 
         
-    def move(self):
-        direction = input("enter direction: ")
-        
-
-        if direction == "left":
+    def move(self,action):
+        if action == "left":
             self.player[1] -= 1
-        if direction == "right":
+        if action == "right":
             self.player[1] += 1
-        if direction == "up":
+        if action == "up":
             self.player[0] += 1
-        if direction == "down":
+        if action == "down":
             self.player[0] -= 1
         else:
             pass
-
-if __name__ == "__main__":
-    myMaze = Maze()
-    while True:
-
-
-        game_over, score = myMaze.run_maze()
-
-        if game_over == True:
-            break
-
-    print(score)
