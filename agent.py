@@ -12,7 +12,7 @@ class Agent:
         self.model = model.Model()
 
         self.state = [0,1]
-        
+    
 
 
     def play_game(self):
