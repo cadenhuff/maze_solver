@@ -27,7 +27,8 @@ class Maze:
         self.evaluate()
         if self.player == [2,2]:
             self.running = False
-            
+            return (self.board[self.player[0]][self.player[1]])
+        return (self.board[self.player[0]][self.player[1]])      
         
         
            

@@ -22,9 +22,12 @@ class Agent:
             #Use model to determine action
             action = self.model.predict(self.state)
             #Update player in game
-            game.step(action)
-            #Update agents state, this is the same as the Player's position in game
+            reward = game.step(action)
+            old_state = self.state
             self.state = game.player
+            self.model.recompute(self.state,old_stae, action, reward)
+            #Update agents state, this is the same as the Player's position in game
+            
         
         
     def run_n_times(self,n):
