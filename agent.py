@@ -25,7 +25,7 @@ class Agent:
             reward = game.step(action)
             old_state = self.state
             self.state = game.player
-            self.model.recompute(self.state,old_stae, action, reward)
+            self.model.recompute(self.state,old_state, action, reward)
             #Update agents state, this is the same as the Player's position in game
             
         

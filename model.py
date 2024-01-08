@@ -48,3 +48,4 @@ my_model = Model()
 
 my_model.predict((0,2))
 my_model.recompute((1,2),(0,2),2,-10)
+my_model.recompute(())
